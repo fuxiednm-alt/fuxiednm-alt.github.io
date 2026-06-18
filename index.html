@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culinary Paradise | AI-Powered Kitchen Assistant</title>
+    <title>QIUXING LI - Smart Operational Solutions</title>
     <style>
-        /* --- 保持原有的全局和 hero 样式 --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            color: #2b2b2b;
-            background-color: #ffffff;
+            background-color: #f9fafb;
+            color: #111827;
             line-height: 1.6;
         }
 
@@ -24,350 +22,377 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid #f0f0f0;
-            position: fixed;
-            width: 100%;
+            padding: 24px 8%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
+            z-index: 100;
         }
 
         .logo {
             font-size: 24px;
-            font-weight: 700;
-            color: #ff4f4f;
+            font-weight: 800;
+            color: #ef4444;
             text-decoration: none;
         }
 
         nav a {
-            margin-left: 30px;
+            margin-left: 32px;
             text-decoration: none;
-            color: #5c5c5c;
+            color: #4b5563;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #ff4f4f;
-        }
-
-        .hero {
-            padding: 180px 8% 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
-        }
-
-        .hero-content {
-            max-width: 50%;
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
+            color: #ef4444;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: #ff4f4f;
-            color: white;
-            text-decoration: none;
+            background-color: #ef4444;
+            color: #ffffff;
+            padding: 12px 24px;
             border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: background-color 0.2s;
         }
 
         .cta-button:hover {
-            background-color: #e04343;
+            background-color: #dc2626;
         }
 
-        /* --- 这里是新的、填充后的聊天机器人界面样式 --- */
-        .hero-chat-container {
-            width: 45%;
-            height: 500px;
-            /* 增加高度以容纳聊天内容 */
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(255, 79, 79, 0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid #ffe3e3;
-        }
-
-        .chat-header {
-            background-color: #ff4f4f;
-            color: white;
-            padding: 15px 20px;
-            font-weight: 600;
+        .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 80px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .chat-header span {
+        .hero-content {
+            flex: 1;
+            padding-right: 60px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: #4b5563;
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            flex: 1;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 24px;
+            height: 450px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            border: 1px solid #fca5a5;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .chat-header .status-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #00ff00;
-            border-radius: 50%;
+        .mock-ui {
+            width: 80%;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        .chat-feed {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background-color: #fffaf8;
+        .mock-chat-line {
+            height: 12px;
+            background: #e5e7eb;
+            margin-bottom: 12px;
+            border-radius: 6px;
         }
 
-        .message {
-            max-width: 80%;
-            padding: 12px 18px;
-            border-radius: 18px;
-            font-size: 14px;
-        }
+        .mock-chat-line.short { width: 60%; }
+        .mock-chat-line.colored { background: #fca5a5; width: 40%; }
 
-        .user-message {
-            background-color: #ffeded;
-            color: #ff4f4f;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .ai-message {
-            background-color: #f1f1f1;
-            color: #4a4a4a;
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .ai-message p {
-            margin-bottom: 10px;
-        }
-
-        .recipe-preview-card {
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
-            background: white;
-            padding: 10px;
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .recipe-preview-card img {
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
-            object-fit: cover;
-        }
-
-        .recipe-preview-details {
-            flex-grow: 1;
-        }
-
-        .recipe-preview-title {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .chat-input-area {
-            padding: 15px 20px;
-            border-top: 1px solid #f0f0f0;
-            background: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-input {
-            flex-grow: 1;
-            padding: 10px 15px;
-            border: 1px solid #f0f0f0;
-            border-radius: 20px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .send-button {
-            background-color: #ff4f4f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        /* --- 保持原有的功能网格和页脚样式 --- */
         .features {
-            padding: 100px 8%;
-            text-align: center;
+            background-color: #ffffff;
+            padding: 80px 8%;
+            border-top: 1px solid #e5e7eb;
         }
 
-        .features h2 {
+        .pricing {
+            background-color: #f3f4f6;
+            padding: 80px 8%;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            text-align: center;
             font-size: 36px;
-            margin-bottom: 50px;
+            font-weight: 800;
+            margin-bottom: 48px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card {
-            padding: 40px 30px;
-            background: #ffffff;
-            border: 1px solid #eef2f5;
-            border-radius: 12px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 32px;
+            border-radius: 16px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
         }
 
         .card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
 
         .card p {
-            color: #666;
+            color: #6b7280;
+        }
+
+        .price-card {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card.featured {
+            border: 2px solid #ef4444;
+            position: relative;
+        }
+
+        .price-value {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 24px 0;
+            color: #111827;
+        }
+
+        .price-value span {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+            color: #4b5563;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .price-btn {
+            display: block;
+            padding: 14px;
+            background-color: #111827;
+            color: #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .price-btn.primary {
+            background-color: #ef4444;
         }
 
         footer {
-            background-color: #1a1a1a;
-            color: #888;
-            padding: 60px 8% 30px;
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 60px 8%;
+            border-top: 1px solid #1f2937;
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
         }
 
-        .footer-links a {
-            color: #888;
+        .footer-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-info h4 {
+            color: #ffffff;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        footer a {
+            color: #9ca3af;
             text-decoration: none;
-            margin-left: 20px;
+            font-size: 14px;
         }
 
-        .footer-links a:hover {
-            color: #fff;
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #1f2937;
+            font-size: 14px;
+            width: 100%;
         }
     </style>
 </head>
-
 <body>
 
     <header>
-        <a href="/" class="logo">Culinary Paradise</a>
+        <a href="#" class="logo">QIUXING LI</a>
         <nav>
             <a href="#features">Features</a>
-            <a href="/privacy.html">Privacy Policy</a>
+            <a href="#pricing">Pricing</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="#" class="cta-button">Get Started</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Automate your kitchen creativity with AI</h1>
-            <p>Culinary Paradise helps food enthusiasts and professional chefs generate instant recipes, manage
-                ingredients, and design menus using specialized conversational intelligence</p>
-            <a href="#" class="cta-button">Start cooking now</a>
+            <h1 class="hero-title">Automate your business operations</h1>
+            <p class="hero-description">Connect digital channels, streamline complex workflows, and elevate customer interaction with the intelligent infrastructure built by QIUXING LI</p>
+            <a href="#pricing" class="cta-button">View Solutions</a>
         </div>
-
-        <div class="hero-chat-container">
-            <div class="chat-header">
-                <span>
-                    <div class="status-dot"></div> Culinary Assistant
-                </span>
-                <span style="font-size: 20px; cursor: pointer;">×</span>
-            </div>
-
-            <div class="chat-feed">
-                <div class="message user-message">
-                    I have some leftover chicken and bell peppers. What's a quick recipe?
-                </div>
-                <div class="message ai-message">
-                    <p>Hello! I can help you turn that into a delicious 'Thai-inspired Chicken and Pepper Stir-Fry' in
-                        under 20 minutes.</p>
-                    <p>Here’s a sneak peek at the ingredients you’ll need from your pantry:</p>
-                    <ul>
-                        <li>Soy Sauce, Fish Sauce, Lime</li>
-                    </ul>
-                    <div class="recipe-preview-card">
-                        <img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=200&auto=format&fit=crop"
-                            alt="Stir-fry">
-                        <div class="recipe-preview-details">
-                            <div class="recipe-preview-title">Quick Thai Chicken Stir-Fry</div>
-                            <div style="font-size: 12px; color: #888;">15 min prep | Serves 2</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" placeholder="Type your cooking query...">
-                <button class="send-button">Send</button>
+        <div class="hero-image">
+            <div class="mock-ui">
+                <div class="mock-chat-line"></div>
+                <div class="mock-chat-line short"></div>
+                <div class="mock-chat-line colored"></div>
+                <div class="mock-chat-line"></div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <h2>Built for modern gastronomy</h2>
+    <section class="features" id="features">
+        <h2 class="section-title">Built for modern digital commerce</h2>
         <div class="grid">
             <div class="card">
-                <h3>Recipe Generation</h3>
-                <p>Create bespoke culinary formulas based on immediate dietary restrictions or specific available
-                    ingredients</p>
+                <h3>Unified Management</h3>
+                <p>Integrate diverse business components into a synchronized operational network</p>
             </div>
             <div class="card">
-                <h3>Menu Engineering</h3>
-                <p>Optimize restaurant offerings through automated flavor pairing algorithms and cost estimation
-                    guidance</p>
+                <h3>Real-time Routing</h3>
+                <p>Instantly process automated tasks across departments without operational lag</p>
             </div>
             <div class="card">
-                <h3>Nutritional Insights</h3>
-                <p>Receive comprehensive macronutrient breakdowns for any culinary creation within seconds of
-                    formulation</p>
+                <h3>Smart Analytics</h3>
+                <p>Monitor volume metrics and system performance through a centralized management display</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Flexible pricing plans</h2>
+        <div class="grid">
+            <div class="price-card">
+                <div>
+                    <h3>Starter Plan</h3>
+                    <p>Ideal for new or localized operations</p>
+                    <div class="price-value">$29<span>/mo</span></div>
+                    <ul class="price-features">
+                        <li>Standard system integration</li>
+                        <li>Up to 3 core channels</li>
+                        <li>Automated data routing</li>
+                        <li>Email support access</li>
+                    </ul>
+                </div>
+                <a href="#" class="price-btn">Choose Starter</a>
+            </div>
+            <div class="price-card featured">
+                <div>
+                    <h3>Professional Plan</h3>
+                    <p>Designed for scaling business models</p>
+                    <div class="price-value">$79<span>/mo</span></div>
+                    <ul class="price-features">
+                        <li>Advanced system processing</li>
+                        <li>Unlimited dynamic channels</li>
+                        <li>Real-time analytics dashboard</li>
+                        <li>Priority queue routing</li>
+                        <li>Phone support option</li>
+                    </ul>
+                </div>
+                <a href="#" class="price-btn primary">Choose Professional</a>
+            </div>
+            <div class="price-card">
+                <div>
+                    <h3>Enterprise Plan</h3>
+                    <p>Tailored architecture requirements</p>
+                    <div class="price-value">Custom</div>
+                    <ul class="price-features">
+                        <li>Bespoke structural layout</li>
+                        <li>Dedicated server networks</li>
+                        <li>Complete security containment</li>
+                        <li>Direct operational oversight</li>
+                        <li>24h hotline architecture</li>
+                    </ul>
+                </div>
+                <a href="tel:+13476123708" class="price-btn">Contact Sales</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 Culinary Paradise All rights reserved</p>
-            <div class="footer-links">
-                <a href="/privacy.html">Privacy Policy</a>
+            <div class="footer-info">
+                <h4>QIUXING LI Systems</h4>
+                <p>4510 98TH ST</p>
+                <p>CORONA NY 11368-2716</p>
+                <p>Corporate Hotline: +1 3476123708</p>
             </div>
+            <div class="footer-links">
+                <a href="#features">Product Matrix</a>
+                <a href="#pricing">Pricing Architecture</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="tel:+13476123708">Direct Support</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 QIUXING LI. All rights reserved</p>
         </div>
     </footer>
 
 </body>
-
 </html>
